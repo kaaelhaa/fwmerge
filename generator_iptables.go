@@ -78,7 +78,7 @@ func generateTable(name string, t Table, withChains bool) (string, error) {
 			continue
 		}
 		for _, r := range chain.Rules {
-			tmp += fmt.Sprintf("-A %s %s\n", cname, r.Content)
+			tmp += fmt.Sprintf("-A %s %s -m comment --comment \"%s\"\n", cname, r.Content, r.Comment)
 		}
 	}
 
