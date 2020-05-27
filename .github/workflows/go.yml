@@ -31,7 +31,13 @@ jobs:
         fi
 
     - name: Build
-      run: go build -v .
+      run: go build -o fwmerge -v .
 
     - name: Test
       run: go test -v .
+
+    - name: upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: fwmerge
+        path: fwmerge
